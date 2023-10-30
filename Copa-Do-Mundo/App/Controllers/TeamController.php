@@ -51,7 +51,7 @@ class TeamController {
         $data['team'] = $this->teamRepository->getById($teamId);
         $data['players'] = $this->playerRepository->getByTeamId($teamId);
 
-        // var_dump Imprime os valores na
+        // var_dump Imprime os valores na tela
         // print '<pre>';
         // var_dump($data);
         // print '<pre>';
@@ -66,6 +66,19 @@ class TeamController {
         $data['team'] = $this->teamRepository->getAll();
 
         return $this->container->view->render($response, 'team.php', $data);
+    }
+
+    public function getByName(Request $request, Response $response, array $params){
+
+        $selecao = $params['name'];
+
+        $data['team'] = $this->teamRepository->getByName($selecao);
+
+        print_r($data);
+        die;
+
+        return $this->container->view->render($response, 'team.php', $data);
+
     }
 
 }

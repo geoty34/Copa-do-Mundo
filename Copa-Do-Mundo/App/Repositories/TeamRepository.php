@@ -55,7 +55,7 @@ class TeamRepository {
     }
 
     public function getByName(string $team_name){
-        $sql = "SELECT * FROM tb_selecoes WHERE team_name = :team_name";
+        $sql = "SELECT * FROM tb_selecoes WHERE selecao = :team_name";
 
         $table = $this->connection->prepare($sql); 
         $table->bindParam(":team_name", $team_name);
